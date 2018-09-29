@@ -7,22 +7,22 @@ export default class RenderService {
     }
 
     renderHeader () {
-        return "<div>header</div>"
+        return "<div class='header'>header</div>"
     }
 
     renderFooter () {
-        return "<div>footer</div>"
+        return "<div class='footer'>footer</div>"
     }
 
     renderPersonInfo ( person ) {
-        return "<div>person</div>"
+        return "<div class='person__info'>person</div>"
     }
 
     renderPersonSkills ( skills ) {
-        return "<div>skills</div>"
+        return "<div class='person__skills'>skills</div>"
     }
 
     renderPersonProjects ( projects ) {
-        return "<div>projects</div>"
+        return "<div class='person__projects'>projects</div>"
     }
 }

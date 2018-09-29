@@ -36,8 +36,9 @@ class Application {
     }
 }
 
+const $root = document.getElementById( "application" )
 const application = new Application()
 
 application
     .initModels()
-    .then( () => application.render() )
+    .then( () => application.render( $root ) )
