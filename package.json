@@ -1,19 +1,24 @@
 {
-  "name": "pf-project",
-  "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/slavent/pf-project.git"
-  },
-  "author": "",
-  "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/slavent/pf-project/issues"
-  },
-  "homepage": "https://github.com/slavent/pf-project#readme"
+    "name": "pf-project",
+    "version": "1.0.0",
+    "description": "",
+    "main": "index.js",
+    "scripts": {
+        "dev": "webpack-dev-server",
+        "prod": "webpack"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/slavent/pf-project.git"
+    },
+    "author": "",
+    "license": "ISC",
+    "bugs": {
+        "url": "https://github.com/slavent/pf-project/issues"
+    },
+    "homepage": "https://github.com/slavent/pf-project#readme",
+    "devDependencies": {
+        "axios": "~0.18.0",
+        "webpack": "~4.20.2"
+    }
 }
