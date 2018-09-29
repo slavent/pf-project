@@ -1,0 +1,45 @@
+{
+    "person": [
+        {
+            "id": 1,
+            "name": "Eric Reverse",
+            "age": "29",
+            "skills": [
+                1,
+                2
+            ],
+            "projects": [
+                1,
+                2
+            ]
+        }
+    ],
+    "skills": [
+        {
+            "id": 1,
+            "name": "html"
+        },
+        {
+            "id": 2,
+            "name": "css"
+        },
+        {
+            "id": 3,
+            "name": "php"
+        }
+    ],
+    "projects": [
+        {
+            "id": 1,
+            "name": "Project 1"
+        },
+        {
+            "id": 2,
+            "name": "Project 2"
+        },
+        {
+            "id": 3,
+            "name": "Project 3"
+        }
+    ]
+}
