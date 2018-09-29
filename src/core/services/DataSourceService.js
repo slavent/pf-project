@@ -5,12 +5,12 @@ import axios from "axios"
  */
 export default class DataSourceService {
     constructor () {
-        this.root = "http://google.com"
+        this.root = "http://localhost:3000"
 
         this.API = {
-            PERSON: `${root}/person/`,
-            SKILLS: `${root}/skills/`,
-            PROJECTS: `${root}/projects/`
+            PERSON: `${this.root}/person/`,
+            SKILLS: `${this.root}/skills/`,
+            PROJECTS: `${this.root}/projects/`
         }
     }
 
