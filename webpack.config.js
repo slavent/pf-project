@@ -21,5 +21,11 @@ module.exports = {
             }
         ]
     },
-    plugins: [ new HtmlWebpackPlugin() ]
+    plugins: [ new HtmlWebpackPlugin( {
+        template: "./src/assets/index.html"
+    } ) ],
+    devServer: {
+        contentBase: path.join( __dirname, "dist" ),
+        port: 8080
+    }
 }

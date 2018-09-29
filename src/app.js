@@ -1,3 +1,4 @@
+import "babel-polyfill"
 import CacheService from "./core/services/CacheService"
 import RenderService from "./core/services/RenderService"
 import DataSourceService from "./core/services/DataSourceService"
@@ -28,11 +29,11 @@ class Application {
         const skillsHTML = this.renderService.renderPersonSkills( this.cacheService.get( fields.SKILLS ) )
         const projectsHTML = this.renderService.renderPersonProjects( this.cacheService.get( fields.PROJECTS ) )
 
-        $root.append( headerHTML )
-        $root.append( personInfoHTML )
-        $root.append( skillsHTML )
-        $root.append( projectsHTML )
-        $root.append( footerHTML )
+        $root.innerHTML = headerHTML
+            + personInfoHTML
+            + skillsHTML
+            + projectsHTML
+            + footerHTML
     }
 }
 
