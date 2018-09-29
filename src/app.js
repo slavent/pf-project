@@ -1,32 +1,43 @@
-import PersonService from "./core/services/PersonService"
 import RenderService from "./core/services/RenderService"
 import DataSourceService from "./core/services/DataSourceService"
 
-class App {
+class Application {
     constructor () {
-        this.personService = new PersonService()
+        this.cache = {}
         this.renderService = new RenderService()
         this.dataSourceService = new DataSourceService()
     }
 
-    init () {
-        const person = this.dataSourceService.getPerson()
-        const skills = this.dataSourceService.getPersonSkills()
-        const projects = this.dataSourceService.getPersonProjects()
+    async initModels () {
+        const person = await this.dataSourceService.getPerson()
+        const skills = await this.dataSourceService.getPersonSkills()
+        const projects = await this.dataSourceService.getPersonProjects()
 
-        this.personService.createPerson()
+        this.cache = {
+            person,
+            skills,
+            projects
+        }
     }
 
     render ( $root ) {
-        const header = this.renderService.renderHeader()
-        const footer = this.renderService.renderFooter()
+        const { person, skills, projects } = this.cache
+        const headerHTML = this.renderService.renderHeader()
+        const footerHTML = this.renderService.renderFooter()
+        const personInfoHTML = this.renderService.renderPersonInfo( person )
+        const skillsHTML = this.renderService.renderPersonSkills( skills )
+        const projectsHTML = this.renderService.renderPersonProjects( projects )
 
-        $root.append( header )
-        $root.append( footer )
+        $root.append( headerHTML )
+        $root.append( personInfoHTML )
+        $root.append( skillsHTML )
+        $root.append( projectsHTML )
+        $root.append( footerHTML )
     }
 }
 
-const app = new App()
+const application = new Application()
 
-app.init()
-app.render()
+application
+    .initModels()
+    .then( () => application.render() )

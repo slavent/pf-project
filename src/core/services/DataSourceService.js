@@ -14,23 +14,27 @@ export default class DataSourceService {
         }
     }
 
-    getPerson () {
-        axios.get( this.API.PERSON ).then( () => {
-            console.log( 123 )
-        } )
+    async getPerson () {
+        try {
+            return await axios.get( this.API.PERSON )
+        } catch ( error ) {
+            console.error( error )
+        }
     }
 
-    getPersonSkills ( id ) {
-        axios.get( this.API.SKILLS ).then( () => {
-            console.log( 123 )
-        } )
+    async getPersonSkills () {
+        try {
+            return await axios.get( this.API.SKILLS )
+        } catch ( error ) {
+            console.error( error )
+        }
     }
 
-    getPersonProjects ( id ) {
-        axios.get( this.API.PROJECTS ).then( () => {
-            console.log( 123 )
-        } )
+    async getPersonProjects () {
+        try {
+            return await axios.get( this.API.PROJECTS )
+        } catch ( error ) {
+            console.error( error )
+        }
     }
 }
-
-S

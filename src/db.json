@@ -3,15 +3,7 @@
         {
             "id": 1,
             "name": "Eric Reverse",
-            "age": "29",
-            "skills": [
-                1,
-                2
-            ],
-            "projects": [
-                1,
-                2
-            ]
+            "age": "29"
         }
     ],
     "skills": [
