@@ -7,7 +7,7 @@ export default class RenderService {
     }
 
     renderHeader () {
-        return "<div class='header'>header</div>"
+        return "<div class='container'><div class='row'><div class='col-12'>header</div></div></div>"
     }
 
     renderFooter () {

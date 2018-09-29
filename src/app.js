@@ -1,4 +1,5 @@
 import "babel-polyfill"
+import "bootstrap/dist/css/bootstrap-grid.min.css"
 import CacheService from "./core/services/CacheService"
 import RenderService from "./core/services/RenderService"
 import DataSourceService from "./core/services/DataSourceService"
