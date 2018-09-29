@@ -1,9 +1,11 @@
+import CacheService from "./core/services/CacheService"
 import RenderService from "./core/services/RenderService"
 import DataSourceService from "./core/services/DataSourceService"
+import fields from "./core/enums/fields"
 
 class Application {
     constructor () {
-        this.cache = {}
+        this.cacheService = new CacheService()
         this.renderService = new RenderService()
         this.dataSourceService = new DataSourceService()
     }
@@ -13,20 +15,18 @@ class Application {
         const skills = await this.dataSourceService.getPersonSkills()
         const projects = await this.dataSourceService.getPersonProjects()
 
-        this.cache = {
-            person,
-            skills,
-            projects
-        }
+        this.cacheService
+            .set( fields.PERSON, person )
+            .set( fields.SKILLS, skills )
+            .set( fields.PROJECTS, projects )
     }
 
     render ( $root ) {
-        const { person, skills, projects } = this.cache
         const headerHTML = this.renderService.renderHeader()
         const footerHTML = this.renderService.renderFooter()
-        const personInfoHTML = this.renderService.renderPersonInfo( person )
-        const skillsHTML = this.renderService.renderPersonSkills( skills )
-        const projectsHTML = this.renderService.renderPersonProjects( projects )
+        const personInfoHTML = this.renderService.renderPersonInfo( this.cacheService.get( fields.PERSON ) )
+        const skillsHTML = this.renderService.renderPersonSkills( this.cacheService.get( fields.SKILLS ) )
+        const projectsHTML = this.renderService.renderPersonProjects( this.cacheService.get( fields.PROJECTS ) )
 
         $root.append( headerHTML )
         $root.append( personInfoHTML )
